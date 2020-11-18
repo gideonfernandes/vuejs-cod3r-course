@@ -1,0 +1,21 @@
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+<div id="app">
+  <p>{{ welcome() }}</p>
+</div>
+
+<script>
+  // PS: Dados no data: {} e methods: {}, etc serão jogados para a raiz da instância do VUE
+  // ou seja, um data com nome title, e methods com nome title não podem existir, apenas um ou outro...
+  new Vue({
+    el: '#app',
+    data: {
+      title: 'Hello and welcome!'
+    },
+    methods: {
+      welcome: function() {
+        return this.title
+      }
+    }
+  })
+</script>
