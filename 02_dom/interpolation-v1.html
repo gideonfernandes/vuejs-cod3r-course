@@ -1,0 +1,24 @@
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+<div id="app">
+  <p>{{ counter }}</p>
+  <p>{{ counter > 10 ? 'Maior do que 10' : 'Menor do que 10' }}</p>
+  <p>Contador x 2 = {{  counter * 2 }}</p>
+  <button v-on:click="sum(5, $event)">PLUS</button>
+</div>
+
+<script>
+  new Vue({
+    el: '#app',
+    data: {
+      counter: 0,
+      x: 0,
+      y: 0,
+    },
+    methods: {
+      sum(event) {
+        this.counter++;
+      },
+    },
+  });
+</script>

@@ -1,0 +1,33 @@
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+<div id="app">
+  <button v-on:click="plus">Aumentar +</button>
+  <button v-on:click="less">Diminuir -</button>
+  <p>Contador: {{ counter }}</p>
+  <p>Resultado: {{ result }}</p>
+</div>
+
+<script>
+  new Vue({
+    el: "#app",
+    data: {
+      counter: 0,
+    },
+    computed: {
+      result() {
+        return this.counter >= 5 ? 'Maior ou igual à 5!' : 'Menor que 5!';
+      },
+    },
+    methods: {
+      plus() {
+        this.counter++;
+      },
+      less() {
+        this.counter--;
+      },
+      // result() {
+      //   return this.counter >= 5 ? 'Maior ou igual à 5!' : 'Menor que 5!';
+      // },
+    },
+  });
+</script>

@@ -1,0 +1,19 @@
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+<div id="app">
+  <p>{{ value }}</p>
+  <input type="text" v-bind:value="value">
+  <input type="text" v-bind:value="value" v-on:change="value = $event.target.value">
+  <input type="text" v-bind:value="value" v-on:input="value = $event.target.value">
+  <input type="text" v-model="value">
+</div>
+
+<script>
+  new Vue({
+    el: "#app",
+    data: {
+      value: 'Utilizando o VUEJS!'
+    },
+    methods: {},
+  });
+</script>
