@@ -1,0 +1,51 @@
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+<style>
+  .caixas {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .demo {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: gray;
+  }
+
+  .c1 { background-color: green; }
+  .c2 { background-color: blue; }
+  .c3 { background-color: red; }
+
+  .rotate {
+    transform: rotate(-45deg);
+  }
+</style>
+
+<div id="app">
+  <div class="caixas">
+    <div class="demo" @click="applyC1 = !applyC1" :class="style01"></div>
+    <div class="demo" @click="applyC2 = !applyC2" :class="[cssClass, 'rotate']"></div>
+  </div>
+  <input type="text" v-model="cssClass">
+</div>
+
+<script>
+  new Vue({
+    el: '#app',
+    data: {
+      applyC1: false,
+      cssClass: 'c1',
+    },
+    computed: {
+      style01() {
+        return {
+          c1: this.applyC1,
+          c2: !this.applyC1,
+        }
+      }
+    },
+  });
+</script>
