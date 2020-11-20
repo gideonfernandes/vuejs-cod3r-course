@@ -1,0 +1,33 @@
+<meta charset="UTF-8">
+<script src="https://unpkg.com/vue"></script>
+
+<div id="app">
+  <h1>Família Fernandes</h1>
+  <hr><hr>
+  <template v-for="(person, key) in people">
+    <h2>Nome: {{ person.name }}</h2>
+    <h2>Idade: {{ person.age }}</h2>
+    <h2>Peso: {{ person.weight }}kg</h2>
+    <hr>
+  </template>
+  
+  <template v-for="(person, index) in people">
+    <div v-for="(value, key, index) in person">
+      <p>{{ key }} = {{ value }} = {{ index }}</p>
+    </div>
+    <hr>
+  </template>
+</div>
+
+<script>
+  new Vue({
+    el: '#app',
+    data: {
+      people: [
+        { name: 'Gideon', age: 22, weight: 86.5 },
+        { name: 'Herika', age: 21, weight: 84.5 },
+        { name: 'Ryan', age: 06, weight: 20 },
+      ],
+    },
+  });
+</script>
