@@ -1,0 +1,50 @@
+<meta charset="UTF-8">
+
+<div id="app">
+    {{ name }} {{ lastName }} {{ age }}
+    <p>{{ 100 + 100 }}</p>
+    <p>{{ 100 * 100 }}</p>
+    <p>{{ 100 - 100 }}</p>
+</div>
+
+<script>
+    function myVue(params) {
+        let { el, data } = params;
+
+        this.$el = document.querySelector(el);
+        this.$data = data;
+
+        for (let attr in this.$data) {
+            Object.defineProperty(this, attr, {
+                get: () => {
+                    return this.$data[attr]
+                },
+
+                set: (value) => {
+                    this.$data[attr] = value; 
+                },
+            });
+        };
+
+        const regex = /\{\{([\s\w+*-]*)\}\}/g
+        this.$el.innerHTML = this.$el.innerHTML.replace(regex, (match, $1) => {
+            const value = this[$1.trim()]
+            return value ? value : eval($1);
+        });
+    };
+
+    const vm = new myVue({
+        el: '#app',
+        data: {
+            name: 'Gideon',
+            lastName: 'Fernandes',
+            age: 22,
+        },
+    });
+
+    console.log(vm.name);
+    vm.name = 'Gideon Fernandes';
+    console.log(vm.name);
+    vm.$data.age = 22;
+    console.log(vm.age); // Print undefined on console
+</script>

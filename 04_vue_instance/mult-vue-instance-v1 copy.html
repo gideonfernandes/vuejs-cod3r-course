@@ -1,0 +1,37 @@
+<meta charset="UTF-8">
+<script src="https://unpkg.com/vue"></script>
+
+<div id="app">
+    {{ titleOne }}
+    <button @click="modifyButtonValue">Alterar</button>
+</div>
+<div id="app2">
+    {{ titleTwo }}
+    <button @click="modifyButtonValue">Alterar</button>
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            titleOne: 'TítuloUm'
+        },
+        methods: {
+            modifyButtonValue() {
+                this.titleOne += '!';
+            },
+        },
+    });
+
+    new Vue({
+        el: '#app2',
+        data: {
+            titleTwo: 'TítuloDois'
+        },
+        methods: {
+            modifyButtonValue() {
+                this.titleTwo += '!';
+            },
+        },
+    });
+</script>

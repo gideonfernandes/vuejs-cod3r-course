@@ -1,0 +1,24 @@
+<meta charset="UTF-8">
+<script src="https://unpkg.com/vue"></script>
+
+<div id="app">
+    {{ titleOne }} {{ newInfo }} <!-- This newInfo raise an error on console because it's not a reactive property -->
+    <button @click="modify">Alterar</button>
+</div>
+
+<script>
+    const vm = new Vue({
+        el: '#app',
+        data: {
+            titleOne: 'TítuloUm'
+        },
+        methods: {
+            modify() {
+                this.titleOne += '!';
+            },
+        },
+    });
+
+    vm.newInfo = 'Nova info...';
+    console.log(vm.newInfo);
+</script>
