@@ -1,0 +1,34 @@
+<meta charset="UTF-8">
+<script src="https://unpkg.com/vue"></script>
+
+<div id="app">
+	<comp></comp>
+	<comp></comp>
+	<comp></comp>
+</div>
+
+<script>
+	Vue.component('comp', {
+		template: `
+			<main>
+				<h2> {{ module }} </h2>
+				<button @click="modifyModule">Alterar Módulo</button>
+			</main>
+		`,
+		data: function() {
+			return {
+				klass: 'Aula usando Ref',
+				module: 'Módulo: Instância Vue',
+			};
+		},
+		methods: {
+			modifyModule() {
+				this.module += '#'
+			}
+		}
+	});
+
+	const vm = new Vue({
+		el: '#app'
+	});
+</script>

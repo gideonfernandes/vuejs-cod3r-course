@@ -2,38 +2,38 @@
 <script src="https://unpkg.com/vue"></script>
 
 <div id="app">
-    {{ titleOne }}
-    <button @click="modify">Alterar</button>
+		{{ titleOne }}
+		<button @click="modify">Alterar</button>
 </div>
 <div id="app2">
-    {{ titleTwo }}
-    <button @click="modify">Alterar</button>
+		{{ titleTwo }}
+		<button @click="modify">Alterar</button>
 </div>
 
 <script>
-    const vm1 = new Vue({
-        el: '#app',
-        data: {
-            titleOne: 'TítuloUm'
-        },
-        methods: {
-            modify() {
-                vm2.titleTwo += '!';
-            },
-        },
-    });
+		const vm1 = new Vue({
+				el: '#app',
+				data: {
+						titleOne: 'TítuloUm'
+				},
+				methods: {
+						modify() {
+								vm2.titleTwo += '!';
+						},
+				},
+		});
 
-    const vm2 = new Vue({
-        el: '#app2',
-        data: {
-            titleTwo: 'TítuloDois'
-        },
-        methods: {
-            modify() {
-                vm1.titleOne += '!';
-            },
-        },
-    });
+		const vm2 = new Vue({
+				el: '#app2',
+				data: {
+						titleTwo: 'TítuloDois'
+				},
+				methods: {
+						modify() {
+								vm1.titleOne += '!';
+						},
+				},
+		});
 
-    setTimeout(() => vm2.titleTwo = 'Alterado pelo Timer!', 2000);
+		setTimeout(() => vm2.titleTwo = 'Alterado pelo Timer!', 2000);
 </script>
